@@ -21,18 +21,21 @@ def scrapear_tickers():
     #1.3 Lee la tabla desde el texto de la respuesta, usando io.StringIO para forzar la interpretación como string HTML
     tables = pd.read_html(io.StringIO(r.text))
     df_spy = tables[0]
+    tickers_a_analizar = df_spy['Symbol'].tolist()
 
-    #1.4 Extrae la lista de Tickers
-    tickers_a_analizar = [t.replace('.', '-') for t in df_spy['Symbol'].tolist()]
-
-    #1.5 Añade tickers de interes.
+    #1.4 Añade tickers de interes.
 
     mis_tickers = ['^VIX', 'SPY', 'SPXL' , 'TQQQ' , 'QQQ' , 'URA' , 'XLI' , 'XLF' , 'XLRE' , 'XLB' , 'XLY' , 'XLE', 'XLV' ,
                     'XBI' , 'XLC' , 'BTC-USD' , 'DIA',
                     'XLK' , 'SMH', 'XLP', 'XLU', 'CIBR', 'IBB', 'ICLN','ARKK','COPX','GDX'
+                    'SLV' , 'GLD', 'USP' 'TLT' , 'IEF', 'LQD', 'HYG', 'UNG' , 'DBA'
+                    
                     ]
 
     tickers_a_analizar.extend(mis_tickers)
+    tickers_a_analizar = sorted(
+    list(set(t.replace('.', '-') for t in tickers_a_analizar))
+        )
 
     if tickers_a_analizar:
       print(f"Se han cargado {len(tickers_a_analizar)} tickers...")
