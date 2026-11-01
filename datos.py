@@ -16,7 +16,7 @@ def obtener_tickers(temporalidad, periodo):
     print(f"Tiempo de descarga en {tiempo_total:.2f} segundos.")
 
     if not data.empty:
-        print(f"Se descargó datos en temporalidad{temporalidad} con un periodo de {periodo}")
+        print(f"Se descargó datos en temporalidad {temporalidad} con un periodo de {periodo}")
         
     return(data)   
 
