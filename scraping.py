@@ -28,7 +28,7 @@ def scrapear_tickers():
     mis_tickers = ['^VIX', 'SPY', 'SPXL' , 'TQQQ' , 'QQQ' , 'URA' , 'XLI' , 'XLF' , 'XLRE' , 'XLB' , 'XLY' , 'XLE', 'XLV' ,
                     'XBI' , 'XLC' , 'BTC-USD' , 'DIA',
                     'XLK' , 'SMH', 'XLP', 'XLU', 'CIBR', 'IBB', 'ICLN','ARKK','COPX','GDX',
-                    'SLV' , 'GLD', 'USP' 'TLT' , 'IEF', 'LQD', 'HYG', 'UNG' , 'DBA'
+                    'SLV' , 'GLD', 'TLT' , 'IEF', 'LQD', 'HYG', 'UNG' , 'DBA'
                     
                     ]
 
