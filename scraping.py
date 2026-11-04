@@ -42,8 +42,8 @@ def scrapear_tickers():
     ]
 
     banca = [
-        'JPM', 'BAC', 'WFC', 'C', 'GS', 'MS', 'BLK', 'SCHW', 'AXP', 'V', 'MA', 'DFS', 'COF', 
-        'USB', 'PNC', 'TFC', 'BK', 'SPGI', 'MCO', 'AIG', 'MET', 'PRU', 'TRV', 'BRK-B'
+        'JPM', 'BAC', 'WFC', 'C', 'GS', 'MS', 'BLK', 'SCHW', 'AXP', 'V', 'MA', 'COF', 
+        'USB', 'PNC', 'TFC', 'SPGI', 'MCO', 'AIG', 'MET', 'PRU', 'TRV', 'BRK-B'
     ]
 
     industria = [
@@ -52,14 +52,14 @@ def scrapear_tickers():
     ]
 
     mineria_materials = [
-        'RIO', 'BHP', 'VALE', 'FCX', 'SCCO', 'NEM', 'GOLD', 'AEM', 'PAAS', 'AA', 'X', 'CLF', 
+        'RIO', 'BHP', 'VALE', 'FCX', 'SCCO', 'NEM', 'GOLD', 'AEM', 'PAAS', 'AA', 'CLF', 
         'NUE', 'STLD', 'APD', 'SHW', 'ECL', 'DOW', 'DD', 'CCJ', 'TECK', 'TX', 'ADM', 'BG', 
         'MOS', 'CTVA', 'LIN'
     ]
 
     utilities_reits = [
         'NEE', 'DUK', 'SO', 'D', 'AEP', 'EXC', 'SRE', 'PCG', 'PEG', 'VZ', 'T', 'TMUS', 
-        'CHTR', 'CMCSA', 'VOD', 'AMX', 'TEF', 'BCE', 'ED', 'PLD', 'AMT'
+        'CHTR', 'CMCSA', 'VOD', 'AMX', 'BCE', 'ED', 'PLD', 'AMT'
     ]
     
     # --- UNIFICA LAS LISTAS ---
