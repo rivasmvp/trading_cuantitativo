@@ -4,7 +4,7 @@ def caucionar_dias():
     import pandas as pd
 
     dias = int(input("Ingrese la cantidad de días para la caución: "))
-    monto_inicial = float(input("Ingrese el capital inicial a colocar: "))
+    monto_inicial = float(input("Ingrese el capita a colocar a caucionar: "))
 
     tasa_anual = 0.40 
 
@@ -24,4 +24,5 @@ def caucionar_dias():
     
     
 
-caucionar_dias
+caucionar_dias()
+
