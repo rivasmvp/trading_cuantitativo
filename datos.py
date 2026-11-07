@@ -20,7 +20,7 @@ def obtener_tickers(temporalidad, periodo):
         
     return(data)   
 
-# Consulta especifica para descargar los datos del VIX, usado en el índice de volatilidad.
+
 
 def obtener_vix():
     inicio = time.perf_counter()
@@ -32,3 +32,10 @@ def obtener_vix():
     print(f"Datos del VIX descargados en {fin - inicio:.2f} segundos.")
     
     return vix_60m, vix_1d, vix_7d
+
+
+def obtener_sectores(periodo, temporalidad):
+    sectores = scraping.get_sectores()
+    data = yf.download(sectores, period=periodo , interval=temporalidad, group_by='ticker', auto_adjust=True , progress=False)
+    
+    return(data)
