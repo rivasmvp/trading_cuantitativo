@@ -1,3 +1,7 @@
+import time
+import pandas as pd
+import yfinance as yf
+
 commodities_sectoriales = [
             'XLE', 'XLB', 'XLU', 'XME', 'GDX', 'GLD', 'SLV', 'USO', 'DBC', 'DBA', 'COPX', 'URA', 
             'XLI', 'XLF', 'XLRE', 'XLY', 'XLV', 'XBI', 'XLC', 'XLK', 'SMH', 'XLP', 'CIBR', 'IBB', 
@@ -63,6 +67,48 @@ utilities_reits = [
         'NEE', 'DUK', 'SO', 'D', 'AEP', 'EXC', 'SRE', 'PCG', 'PEG', 'VZ', 'T', 'TMUS', 
         'CHTR', 'CMCSA', 'VOD', 'AMX', 'BCE', 'ED', 'PLD', 'AMT'
     ]
+
+import time
+import pandas as pd
+import yfinance as yf
+
+
+def get_vix(temporalidad: str = "1d", periodo: str = "1y") -> pd.DataFrame:
+    """
+    Descarga datos históricos del índice VIX (^VIX) usando yfinance.
+
+    Parámetros:
+        temporalidad: intervalo de barras (ej. "60m", "1d", "1wk").
+        periodo: ventana histórica (ej. "1mo", "6mo", "1y", "5y").
+    """
+    t0 = time.perf_counter()
+    ticker = "^VIX"
+
+    df_vix = yf.download(
+        tickers=ticker,
+        interval=temporalidad,
+        period=periodo,
+        auto_adjust=True,
+        progress=False,
+        threads=False,
+    )
+
+    if df_vix is None or df_vix.empty:
+        print(f"Advertencia: no se obtuvieron datos para {ticker} ({temporalidad}, {periodo}).")
+        return pd.DataFrame()
+
+    if isinstance(df_vix.columns, pd.MultiIndex):
+        if ticker in df_vix.columns.get_level_values(-1):
+            df_vix = df_vix.xs(ticker, axis=1, level=-1)
+        elif ticker in df_vix.columns.get_level_values(0):
+            df_vix = df_vix.xs(ticker, axis=1, level=0)
+        else:
+            df_vix.columns = df_vix.columns.get_level_values(0)
+
+    df_vix = df_vix.dropna(how="all").sort_index()
+    elapsed = time.perf_counter() - t0
+    print(f"Datos del VIX descargados en {elapsed:.2f} segundos.")
+    return df_vix
 
 def get_sectores():
     sectores = (commodities_sectoriales)
